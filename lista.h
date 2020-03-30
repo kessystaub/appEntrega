@@ -1,6 +1,8 @@
 #ifndef LISTA_H
 #define LISTA_H
 #include <iostream>
+#include <ListaGenerica.h>
+
 using namespace std;
 
 struct PRODUTO{
@@ -9,43 +11,69 @@ struct PRODUTO{
     float preco = NULL;
 };
 
-struct CARDAPIO{
-    PRODUTO item[5];
-};
 
-struct Titem{
+
+struct Fitem{
     PRODUTO item;
-    Titem*proximo;
+    Fitem*proximo;
 };
 
-struct Tlista{
-    Titem *inicio;
+struct Flista{
+    Fitem *inicio;
 };
 
-void inicializaListaec(Tlista &l){
-    l.inicio=NULL;
-}
 
-void adicionaItensCarrinho(Tlista &l,CARDAPIO &cardapio,int pos){
-    Titem *novo=new Titem;
+//void inicializaLista(Flista &l){
+//    l.inicio=NULL;
+//}
+
+
+
+
+
+
+
+/*void adicionaItensCarrinho(Flista &l,CARDAPIO &cardapio,int pos){
+    Fitem *novo=new Fitem;
     novo->item=cardapio.item[pos];
     novo->proximo=NULL;
     if(l.inicio==NULL){
         l.inicio=novo;
-
     }
-
     else{
-
-
-       Titem *nav=l.inicio;
+       Fitem *nav=l.inicio;
        while(nav->proximo!=NULL){
            nav=nav->proximo;
        }
        nav->proximo=novo;
     }
+}*/
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #endif // LISTA_H

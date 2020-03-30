@@ -7,4 +7,6 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
-    lista.h
+    cardapioEstatico.h \
+    lista.h \
+    listaGenerica.h

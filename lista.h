@@ -23,11 +23,6 @@ struct Flista{
 };
 
 
-//void inicializaLista(Flista &l){
-//    l.inicio=NULL;
-//}
-
-
 
 
 

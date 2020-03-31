@@ -3,10 +3,12 @@
 #include <iostream>
 using namespace std;
 
+
 template<typename TIPO>
 struct Titem{
     TIPO dado;
 };
+
 
 template<typename TIPO, int MAX>
 struct ListaEstatica{
@@ -15,22 +17,29 @@ struct ListaEstatica{
   int qtd;
 };
 
+
 template <typename TIPO>
 struct ElementoEncadeado{
     ElementoEncadeado<TIPO> *proximo;
     TIPO dado;
-
 };
 
+
+template <typename TIPO>
+struct ElementoDuplaEnc{
+    ElementoDuplaEnc<TIPO> *proximo;
+    ElementoDuplaEnc<TIPO> *anterior;
+    TIPO dado;
+};
 
 
 template <typename TIPO>
 struct ListaDuplaEnc{
-    ListaDuplaEnc *anterior;
-    TIPO dado;
-    ListaDuplaEnc *proximo;
+    ElementoDuplaEnc<TIPO> *inicio;
+    ElementoDuplaEnc<TIPO> *fim;
 
 };
+
 
 template<typename TIPO>
 struct ListaEncadeada{
@@ -69,18 +78,39 @@ void inicializaListaEnc(ListaEncadeada<TIPO>&l){
 
 
 
-
-
-
-
-
-
-
-/*template <typename TIPO>
-void PedidoEfetuado (ListaDuplaEnc<TIPO>&L,){
-   TIPO *novo=new TIPO;
+template<typename TIPO>
+void inicializaListaDuplaEnc(ListaDuplaEnc<TIPO>&l){
+    l.inicio=NULL;
+    l.fim=NULL;
 }
-*/
+
+
+template <typename TIPO>
+void InsereDuplaEnc(ListaDuplaEnc<TIPO>&l,TIPO dado){
+    ElementoDuplaEnc<TIPO> *novo=new ElementoDuplaEnc<TIPO>;
+    novo->dado=dado;
+
+    if(l.inicio==NULL && l.fim==NULL){
+        l.inicio=novo;
+        l.fim=novo;
+        novo->proximo=NULL;
+        novo->anterior=NULL;
+    }else{
+        ElementoDuplaEnc<TIPO> *nav=l.inicio;
+
+        while(nav->proximo!=NULL){
+            nav=nav->proximo;
+        }
+        nav->proximo = novo;
+        novo->anterior = nav;
+        novo->proximo = NULL;
+        l.fim = novo;
+
+    }
+
+}
+
+
 
 
 
